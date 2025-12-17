@@ -1,4 +1,4 @@
-function DF = DeltaF2(RawFluo,window_baseline,window_smooth)
+function [DF,F0] = DeltaF2(RawFluo,window_baseline,window_smooth)
 %RawFluo is Neurons x Time
 %window_baseline is the window for the moving minimum
 %window_smooth is the window for the "filtering" which is a rolling average
@@ -38,5 +38,5 @@ for i=1:n(2)
         counter=counter+1;
     end
     F0=min(FX,[],2);
-    DF(:,i)=(RawFluo(:,i)-F0)./F0;    
+    DF(:,i)=(RawFluo(:,i)-F0)./F0;
 end
